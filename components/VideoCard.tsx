@@ -110,29 +110,34 @@ export default function VideoCard({ video, isMuted, volume, onToggleMute, onVolu
           </div>
         )}
 
-        <div className="absolute bottom-16 md:bottom-0 left-0 right-12 p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
-          <div className="flex items-center gap-2 mb-2">
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
-              style={{ backgroundColor: video.avatarColor }}
-            >
-              {video.authorName[1].toUpperCase()}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+          <div className="flex justify-end pr-3 pb-3">
+            <div className="flex flex-col items-center gap-4">
+              <ActionButton onClick={handleLike} label={formatCount(likeCount)} animating={likeAnimating}>
+                <HeartIcon filled={liked} />
+              </ActionButton>
+              <ActionButton label={formatCount(video.commentsCount)}>
+                <CommentIcon />
+              </ActionButton>
+              <ActionButton label={formatCount(video.sharesCount)}>
+                <ShareIcon />
+              </ActionButton>
             </div>
-            <span className="font-semibold text-white text-sm">{video.authorName}</span>
           </div>
-          <p className="text-white text-sm leading-snug line-clamp-3">{video.description}</p>
-        </div>
 
-        <div className="absolute right-2 bottom-32 md:bottom-16 flex flex-col items-center gap-5">
-          <ActionButton onClick={handleLike} label={formatCount(likeCount)} animating={likeAnimating}>
-            <HeartIcon filled={liked} />
-          </ActionButton>
-          <ActionButton label={formatCount(video.commentsCount)}>
-            <CommentIcon />
-          </ActionButton>
-          <ActionButton label={formatCount(video.sharesCount)}>
-            <ShareIcon />
-          </ActionButton>
+          {/* Tên tác giả + mô tả — full width */}
+          <div className="px-4 pb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <div
+                className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
+                style={{ backgroundColor: video.avatarColor }}
+              >
+                {video.authorName[1].toUpperCase()}
+              </div>
+              <span className="font-semibold text-white text-sm">{video.authorName}</span>
+            </div>
+            <p className="text-white text-sm leading-snug line-clamp-3">{video.description}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ body {
 }
 
 .scroll-container {
-  height: 100dvh;
+  height: calc(100dvh - 4rem); /* trừ bottom nav mobile (h-16 = 4rem) */
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
@@ -29,6 +29,16 @@ body {
 .video-snap-item {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  height: calc(100dvh - 4rem);
+}
+
+@media (min-width: 768px) {
+  .scroll-container {
+    height: 100dvh;
+  }
+  .video-snap-item {
+    height: 100dvh;
+  }
 }
 
 @keyframes likeBounce {
