@@ -110,7 +110,7 @@ export default function VideoCard({ video, isMuted, volume, onToggleMute, onVolu
           </div>
         )}
 
-        <div className="absolute bottom-0 left-0 right-12 p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+        <div className="absolute bottom-16 md:bottom-0 left-0 right-12 p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
           <div className="flex items-center gap-2 mb-2">
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
@@ -123,7 +123,7 @@ export default function VideoCard({ video, isMuted, volume, onToggleMute, onVolu
           <p className="text-white text-sm leading-snug line-clamp-3">{video.description}</p>
         </div>
 
-        <div className="absolute right-2 bottom-16 flex flex-col items-center gap-5">
+        <div className="absolute right-2 bottom-32 md:bottom-16 flex flex-col items-center gap-5">
           <ActionButton onClick={handleLike} label={formatCount(likeCount)} animating={likeAnimating}>
             <HeartIcon filled={liked} />
           </ActionButton>
